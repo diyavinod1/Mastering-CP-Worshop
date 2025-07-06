@@ -15,7 +15,7 @@ int main()
         cin >> n;
         ll d=2;
         vector<ll> pri_factor;
-        while (n>1 && d*d<=n){       // We are using Prime Factorization
+        while (n>1 && d<=3){
             if (n%d==0){
                 pri_factor.push_back(d);
                 n=n/d;
@@ -24,8 +24,24 @@ int main()
                 d++;
             }
         }
-        if (n>1){            // if n is greater than 1 then it is a prime, so we are adding that value to pri_factor
-            pri_factor.push_back(n);             
+        
+        ll a=5,b=7;         //Checking the number to be prime before going into prime factorization
+        d=a<b?a:b;
+        while (n>1 && d*d<=n){
+            if (n%d==0){
+                pri_factor.push_back(d);
+                n=n/d;
+            }
+            else{
+                if (d==a)
+                    a=a+6;
+                else
+                    b=b+6;
+                d=a<b?a:b;
+            }
+        }
+        if (n>1){              //if n is greater than 1 then it is a prime
+            pri_factor.push_back(n);
         }
         cout << pri_factor[pri_factor.size()-1] << "\n";
     }
