@@ -1,0 +1,34 @@
+Types of Recursion
+
+1. Head Recursion
+2. Tail Recursion
+3. Tree Recursion
+4. Indirect / Mutual Recursion
+5. Nested Recursion
+
+HEAD RECURSION - Function’s first logical line should be a FUNCTION CALL, only after that the process should be below the function call.
+
+void func(int n)
+{
+	if (n>0)
+	{
+		func(n-1);
+		printf (“%d”,n);
+	}
+}
+
+TAIL RECURSION - Function’s last logical line should be a FUNCTION CALL, only before that the process should be written.
+
+void func(int n)
+{
+	if (n>0)
+	{
+		printf (“%d”,n);
+		func(n-1);
+	}
+}
+
+TREE / MULTIPLE RECURSION - Function has multiple recursive cases
+
+sum(n) = 3 * sum(n/2) + sum(n/1 -1)
+
