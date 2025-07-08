@@ -1,0 +1,123 @@
+Day 3 AN
+Recurrence Relation
+
+ll sum (ll n)
+{
+	if (n==1)
+		return 1;
+	return sum(n-1)+n;
+}
+
+Basically above code (sum (ll n)) takes T(n) units of time.
+	- n==1	1 unit
+	- return 1	1 unit
+	- sum (n-1)	T[n-1) units
+	- +n	1 unit
+Total = 1+1+T(n-1)+1=T(n-1)+3
+
+FIRST PROBLEM
+T(n) = T(n-1) + 3	Base Case - n=1;T(1)=1
+
+(Constant in the function is always changed to 1)
+
+T(n)=T(n-1)+1	-----------1
+
+Successive Substitution
+
+if n=n-1:
+T(n-1)=T(n-2)+1	-----------2
+
+2 in 1
+T(n)=T(n-2)+2	-----------3
+
+If n=n-2:
+T(n-2)=T(n-3)+1	-----------4
+
+4 in 3
+T(n)=T(n-3)+3	-----------5
+
+Consider only 1 3 5
+Generalize the equations
+constant becomes k
+
+T(n)=T(n-k)+k	-----------6
+
+the above recursion stops when base condition is reached.
+n-k=1
+n=1+k
+k=n-1
+
+Substitute k value in 6th equation
+T(n)=T(n-(n-1))+n-1
+=T(1)+n-1
+=1+n-1
+=n
+
+T(n)=n	linear time
+
+SECOND PROBLEM
+T(n)=2T(n-1)+1	T(0)=1
+
+T(n)=2T(n-1)+1	-----------1
+
+if n=n-1:
+T(n-1)=2T((n-1)-1)+1
+T(n-1)=2T(n-2)+1		-----------2
+
+2 in 1
+T(n)=2(2T(n-2)+1)+1
+T(n)=4T(n-2)+2+1
+T(n)=2^2 T(n-2)+2	-----------3
+
+if n=n-2:
+T(n-2)=2T((n-2)-1)+1		-----------4
+
+4 in 3
+T(n)=2^2 (2T((n-2)-1)+1)+2
+T(n)=2^3 T(n-3)+3	-----------5
+
+T(n)=2^kT(n-k)+k 		-----------6
+
+n-k=0
+k=n
+T(n)=2^nT(0)+n
+T(n)=2^n+n
+(Consider only highest degree)
+
+T(n)=2^n
+
+THIRD PROBLEM
+Return 2*sum(n/2)+(n*n)/4
+
+T(n)=T(n/2)+1+1+1
+
+T(n)=T(n/2)+1		-----------1
+
+if n=n/2:
+T(n/2)=T((n/2)/2)+1	
+T(n/2)=T(n/2^2)+1		-----------2
+
+2 in 1
+T(n)=T(n/2^2)+1+1		-----------3
+
+if n=(n/2)/2=n/2^2
+T(n/2^2)=T((n/2^2)/2)+1
+T(n/2^2)=T(n/2^3)+1		-----------4
+
+4 in 3
+T(n)=T(n/2^3)+1+1+1
+T(n)=T(n/2^3)+3		-----------5
+
+T(n)=T(n/2^k)+k		-----------6
+
+T(1)=1
+n/2^k=1
+n=2^k
+Log 2 (n)=k
+
+T(n)=T(n/n)+Log 2 (n)
+T(n)=1+log 2 (n)
+
+T(n)=log 2 (n)		(Better Decomposition)
+
+
