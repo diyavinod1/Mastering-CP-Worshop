@@ -9,7 +9,10 @@ typedef long long ll;
 ll sum(ll n){       // Recursive function to get sum of natural numbers from 1 to n
     if (n==1)
         return 1;
-    return sum(n-1)+n;
+    if (n%2==0){
+        return 2*sum(n/2)+(n*n)/4;      //Condition to check if n is even
+    }
+    return 2*sum((n-1)/2)+((n+1)*(n+1))/4;      //Condition to check if n is odd
 }
 
 int main(){
