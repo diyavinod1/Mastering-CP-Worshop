@@ -4,7 +4,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
-#define loop(i,a,b) for(int i=a;i<=b;i++)
 
 void display(ll n){       // Recursive function to display numbers from 1 to n
     if (n>1)
