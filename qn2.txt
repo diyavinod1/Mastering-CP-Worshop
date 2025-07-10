@@ -1,0 +1,58 @@
+What is the return value of foo(513, 2)? 
+
+unsigned int foo(unsigned int n, unsigned int r) { 
+   if (n > 0) return (n%r + foo (n/r, r )); 
+   else return 0; 
+}
+
+Answer: 2
+
+Explanation:
+ First, 513 is greater than 0.
+So, 513%2 + foo(513/2,2)
+      1   +  foo(256,2)
+                 |
+                 |
+        256%2 + foo(256/2,2)
+          0   +  foo(128,2)
+                 |
+                 |
+        128%2 + foo(128/2,2)
+          0   +  foo(64,2)
+                 |
+                 |
+        64%2 + foo(64/2,2)
+          0   +  foo(32,2)
+                 |
+                 |
+        32%2 + foo(32/2,2)
+          0   +  foo(16,2)
+                 |
+                 |
+        16%2 + foo(16/2,2)
+          0   +  foo(8,2)
+                 |
+                 |
+        8%2 + foo(8/2,2)
+          0   +  foo(4,2)
+                 |
+                 |
+        4%2 + foo(4/2,2)
+          0   +  foo(2,2)
+                 |
+                 |
+        2%2 + foo(2/2,2)
+          0   +  foo(1,2)
+                 |
+                 |
+        1%2 + foo(1/2,2)
+          1   +  foo(0,2)
+Now the foo(0,2) returns 0.
+And 1+0 = 1
+the 1 goes to foo(1,2) and becomes, 0+1 = 1
+This continues...
+And foo(256,2)=1
+1+1 = 2
+And finally 2 is printed.
+
+HOPE THIS HELPS...
