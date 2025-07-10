@@ -1,0 +1,72 @@
+What does f(173) print?
+
+#include <iostream> 
+using namespace std; 
+void f(int n) { 
+   if (n <= 1) { 
+      cout << n; 
+   } else { 
+      f(n / 2); 
+      cout << n % 2; 
+   } 
+}
+
+Answer: 10101101
+
+Explanation:
+f(173)
+First the n will go into the else block as n is greater than 1.
+Inside the block, a function is called with n/2 as parameter, so 173/2 = 86 is the parameter.
+
+f(86)
+n will go into the else block as n is greater than 1.
+Again, a function is called with n/2 as parameter, so 86/2 = 43 is the parameter.
+
+f(43)
+n will go into the else block as n is greater than 1.
+Again, a function is called with n/2 as parameter, so 43/2 = 21 is the parameter.
+
+f(21)
+n will go into the else block as n is greater than 1.
+Again, a function is called with n/2 as parameter, so 21/2 = 10 is the parameter.
+
+f(10)
+n will go into the else block as n is greater than 1.
+Again, a function is called with n/2 as parameter, so 10/2 = 5 is the parameter.
+
+f(5)
+n will go into the else block as n is greater than 1.
+Again, a function is called with n/2 as parameter, so 5/2 = 2 is the parameter.
+
+f(2)
+n will go into the else block as n is greater than 1.
+Again, a function is called with n/2 as parameter, so 2/2 = 1 is the parameter.
+
+f(1)
+n will go into the if block as n is equal to 1.
+And n is printed which 1.
+
+This 1 goes to f(2), under which n%2 is printed.
+So, 2%2 = 0 is printed
+
+This 0 goes to f(5), under which n%2 is printed.
+So, 5%2 = 1 is printed
+
+This 1 goes to f(10), under which n%2 is printed.
+So, 10%2 = 0 is printed
+
+This 0 goes to f(21), under which n%2 is printed.
+So, 21%2 = 1 is printed
+
+This 1 goes to f(43), under which n%2 is printed.
+So, 43%2 = 1 is printed
+
+This 1 goes to f(86), under which n%2 is printed.
+So, 86%2 = 0 is printed
+
+This 0 goes to f(173), under which n%2 is printed.
+So, 173%2 = 1 is printed
+
+Thus, the answer 10101101 is printed as  a whole.
+
+HOPE THIS HELPS...
